@@ -1,0 +1,49 @@
+---
+title: Getting Started
+---
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+### Installation
+
+<Tabs>
+  <TabItem label="pnpm">
+  ```sh
+  pnpm add -D eslint witheslint
+  ```
+  </TabItem>
+  <TabItem label="yarn">
+  ```sh
+  yarn add -D eslint witheslint
+  ```
+  </TabItem>
+  <TabItem label="npm">
+  ```sh
+  npm install -D eslint witheslint
+  ```
+  </TabItem>
+</Tabs>
+
+
+### Configuration
+
+- Create ESLint configuration file `eslint.config.js`
+
+```js
+import { defineConfig } from 'witheslint'
+
+export default defineConfig()
+```
+> Note that `.eslintignore` no longer works in Flat config, see [customization](./customization) for more details.
+
+<Aside type="caution" title="Warning">
+  If your project does not specify `"type":"module"` in its `package.json` file, then `eslint.config.js` must be in CommonJS format, such as:
+  ```js
+  module.exports = (async () => {
+    const { defineConfig } = await import('witheslint')
+    return defineConfig()
+  })()
+  ```
+</Aside>
+
+- [Configure your editor](./ide-support)
+

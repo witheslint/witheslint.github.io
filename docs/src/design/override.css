@@ -1,0 +1,67 @@
+code {
+  border-radius: 4px;
+}
+
+footer .pagination-links a{
+  padding: 0.5rem;
+}
+footer .pagination-links a > span{
+  font-size: var(--sl-text-xs) !important;
+}
+footer .pagination-links a .link-title{
+  font-size: var(--sl-text-lg) !important;
+}
+
+
+.action{
+  padding: 0.5rem 1.25rem !important;
+}
+.action:hover{
+  opacity: 90%;
+  transition: opacity 0.2s;
+}
+.action.minimal{
+  color: currentColor;
+  background-color: var(--sl-color-gray-6);
+}
+
+.card{
+  border-radius: 8px;
+}
+
+.expressive-code .is-terminal figcaption{
+  border-radius: 8px 8px 0 0 !important;
+}
+.expressive-code .is-terminal pre  {
+  border-radius: 0 0 8px 8px !important;
+}
+.expressive-code :not(.is-terminal) pre  {
+  border-radius: 8px !important;
+}
+.expressive-code .copy button {
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+}
+
+.sl-markdown-content blockquote:not(:where(.not-content *)){
+  border-inline-start: 4px solid var(--sl-color-gray-5) !important;
+}
+.sl-markdown-content ul:not([role='tablist']) li{
+  list-style: disc !important;
+}
+.sl-markdown-content ul:not([role='tablist']){
+  padding-left: 1rem;
+}
+
+.starlight-aside{
+  border-radius: 0 8px 8px 0 !important;
+}
+
+:root {
+  --purple-hsl: 255, 60%, 60%;
+  --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+}
+
+[data-has-hero] .hero > img {
+  filter: drop-shadow(0 0 8rem #4B33C3);
+}

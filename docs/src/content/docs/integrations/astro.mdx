@@ -1,0 +1,52 @@
+---
+title: Astro
+---
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+✨ Use astro eslint config preset in witheslint. ✨
+
+<Aside type="tip">
+  This preset is included in the `witheslint` package
+</Aside>
+
+### Installation
+
+<Tabs>
+  <TabItem label="pnpm">
+  ```sh
+  pnpm add -D eslint witheslint
+  # pnpm add -D eslint @witheslint/core @witheslint/preset-astro
+  ```
+  </TabItem>
+  <TabItem label="yarn">
+  ```sh
+  yarn add -D eslint witheslint
+  # yarn add -D eslint @witheslint/core @witheslint/preset-astro
+  ```
+  </TabItem>
+  <TabItem label="npm">
+  ```sh
+  npm install -D eslint witheslint
+  # npm install -D eslint @witheslint/core @witheslint/preset-astro
+  ```
+  </TabItem>
+</Tabs>
+
+### Reference
+
+- `eslint.config.js`
+
+```js
+import { defineConfig, presetAstro } from 'witheslint'
+// import { defineConfig } from '@witheslint/core'
+// import { presetAstro } from '@witheslint/preset-astro'
+
+export default defineConfig({
+  presets: [
+    presetAstro(),
+    // ...other presets
+  ],
+})
+```
+> See [customization](/guides/customization) for more details.
+

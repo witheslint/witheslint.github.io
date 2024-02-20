@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# distribute
+dist
+
+# macOS-specific
+.DS_Store
+
+# generated types
+.astro/
+
+# IDE-specific
+.idea
