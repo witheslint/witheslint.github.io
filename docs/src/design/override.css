@@ -4,6 +4,7 @@ code {
 
 footer .pagination-links a{
   padding: 0.5rem;
+  box-shadow: none;
 }
 footer .pagination-links a > span{
   font-size: var(--sl-text-xs) !important;
@@ -12,6 +13,9 @@ footer .pagination-links a .link-title{
   font-size: var(--sl-text-lg) !important;
 }
 
+[data-has-hero] .hero > img {
+  filter: drop-shadow(0 0 8rem #4B33C3);
+}
 
 .action{
   padding: 0.5rem 1.25rem !important;
@@ -29,13 +33,11 @@ footer .pagination-links a .link-title{
   border-radius: 8px;
 }
 
-.expressive-code .is-terminal figcaption{
-  border-radius: 8px 8px 0 0 !important;
-}
-.expressive-code .is-terminal pre  {
+.expressive-code .frame.has-title:not(.is-terminal) pre,
+.expressive-code .is-terminal pre{
   border-radius: 0 0 8px 8px !important;
 }
-.expressive-code :not(.is-terminal) pre  {
+.expressive-code :not(.is-terminal) pre{
   border-radius: 8px !important;
 }
 .expressive-code .copy button {
@@ -55,13 +57,4 @@ footer .pagination-links a .link-title{
 
 .starlight-aside{
   border-radius: 0 8px 8px 0 !important;
-}
-
-:root {
-  --purple-hsl: 255, 60%, 60%;
-  --overlay-blurple: hsla(var(--purple-hsl), 0.2);
-}
-
-[data-has-hero] .hero > img {
-  filter: drop-shadow(0 0 8rem #4B33C3);
 }
