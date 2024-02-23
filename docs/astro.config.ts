@@ -14,6 +14,9 @@ export default defineConfig({
       social: {
         github: 'https://github.com/witheslint/witheslint',
       },
+      editLink: {
+        baseUrl: 'https://github.com/witheslint/witheslint.github.io/edit/main/docs/',
+      },
       sidebar: [
         {
           label: 'Guides',
