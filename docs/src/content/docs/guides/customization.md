@@ -104,11 +104,11 @@ interface StylisticConfig {
   commaDangle?: 'always-multiline' | 'always' | 'never' | 'only-multiline'
 }
 ```
-<br></details>
+</details>
 
 
-- Configuration
-```ts
+- `eslint.config.js`
+```js
 import { defineConfig, presetVue } from 'witheslint'
 
 export default defineConfig({
@@ -153,3 +153,8 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)                           |
 | `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://eslint.style)                                           |
 | `sorter/*` | `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
+| `-`        | `jsdoc/*`              | [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc)                        |
+| `-`        | `unicorn/*`            | [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)             |
+| `-`        | `unused-imports/*`     | [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)  |
+
+
