@@ -1,5 +1,7 @@
 ---
 title: IDE Support
+sidebar:
+  order: 3
 ---
 
 ### VSCode
@@ -15,7 +17,7 @@ title: IDE Support
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
-  
+
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",

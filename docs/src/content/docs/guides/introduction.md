@@ -1,5 +1,7 @@
 ---
 title: Introduction
+sidebar:
+  order: 1
 ---
 
 Welcome to WithESLint!
@@ -9,7 +11,7 @@ Welcome to WithESLint!
 
 ### Features
 
-- Auto fix for formatting 
+- Auto fix for formatting
 - Single quotes, no semicolons
 - Sorted imports, dangling commas for cleaner commit diff
 - Designed to work with `JSX`, `TypeScript` out-of-box

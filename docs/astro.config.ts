@@ -20,12 +20,7 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Guides',
-          items: [
-            { label: 'Introduction', link: '/guides/introduction' },
-            { label: 'Getting Started', link: '/guides/getting-started' },
-            { label: 'IDE Support', link: '/guides/ide-support' },
-            { label: 'Customization', link: '/guides/customization' },
-          ],
+          autogenerate: { directory: 'guides' },
         },
         {
           label: 'Integrations',

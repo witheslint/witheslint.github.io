@@ -1,5 +1,8 @@
 ---
 title: Customization
+next: false
+sidebar:
+  order: 4
 ---
 
 ### Reference
