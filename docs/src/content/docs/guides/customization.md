@@ -4,53 +4,9 @@ title: Customization
 
 ### Reference
 
-```ts
-import { defineConfig, presetVue } from 'witheslint'
+<details>
+<summary>Type Declarations</summary>
 
-export default defineConfig({
-  // Customize ignored files and directories.
-  ignores: [
-    '**/node_modules',
-    '**/dist',
-    '**/.idea',
-  ],
-  features: {
-    // typescript: false, // Do not want to use TypeScript.
-    // stylistic: false, // Do not want to use stylistic rules
-  },
-  presets: [
-    presetVue() // In your vue project
-  ],
-  extends: [
-    {
-      // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
-      files: ['**/*.vue'],
-      rules: {
-        'vue/operator-linebreak': ['error', 'before'],
-      },
-    },
-    {
-      // Without `files`, they are general rules for all files
-      rules: {
-        'style/semi': ['error', 'never'],
-      },
-    }
-  ]
-})
-```
-
-### Plugins Renaming
-
-Since flat config requires us to explicitly provide the plugin names (instead of the mandatory convention from npm package name), we renamed some plugins to make the overall scope more consistent and easier to write.
-
-| New Prefix | Original Prefix        | Source Plugin                                                                              |
-| ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `import/*` | `i/*`                  | [eslint-plugin-i](https://github.com/un-es/eslint-plugin-i)                                |
-| `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)                           |
-| `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://eslint.style)                                           |
-| `sorter/*` | `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
-
-### Type Declarations
 ```ts
 interface DefineConfigOptions {
   /**
@@ -148,3 +104,52 @@ interface StylisticConfig {
   commaDangle?: 'always-multiline' | 'always' | 'never' | 'only-multiline'
 }
 ```
+<br></details>
+
+
+- Configuration
+```ts
+import { defineConfig, presetVue } from 'witheslint'
+
+export default defineConfig({
+  // Customize ignored files and directories.
+  ignores: [
+    '**/node_modules',
+    '**/dist',
+    '**/.idea',
+  ],
+  features: {
+    // typescript: false, // Do not want to use TypeScript.
+    // stylistic: false, // Do not want to use stylistic rules
+  },
+  presets: [
+    presetVue() // In your vue project
+  ],
+  extends: [
+    {
+      // Remember to specify the file glob here, otherwise it might cause the vue plugin to handle non-vue files
+      files: ['**/*.vue'],
+      rules: {
+        'vue/operator-linebreak': ['error', 'before'],
+      },
+    },
+    {
+      // Without `files`, they are general rules for all files
+      rules: {
+        'style/semi': ['error', 'never'],
+      },
+    }
+  ]
+})
+```
+
+### Plugins Renaming
+
+Since flat config requires us to explicitly provide the plugin names (instead of the mandatory convention from npm package name), we renamed some plugins to make the overall scope more consistent and easier to write.
+
+| New Prefix | Original Prefix        | Source Plugin                                                                              |
+| ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
+| `import/*` | `i/*`                  | [eslint-plugin-i](https://github.com/un-es/eslint-plugin-i)                                |
+| `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)                           |
+| `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://eslint.style)                                           |
+| `sorter/*` | `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
