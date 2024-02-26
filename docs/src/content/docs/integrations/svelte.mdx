@@ -29,17 +29,37 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 ### Reference
 
-- `eslint.config.js`
+<Tabs>
+  <TabItem label="ESModule">
+  ```js
+  // eslint.config.js
+  import { defineConfig } from '@witheslint/core'
+  import { presetSvelte } from '@witheslint/preset-svelte'
 
-```js
-import { defineConfig } from '@witheslint/core'
-import { presetSvelte } from '@witheslint/preset-svelte'
+  export default defineConfig({
+    presets: [
+      presetSvelte(),
+      // ...other presets
+    ],
+  })
+  ```
+  </TabItem>
+  <TabItem label="CommonJS">
+  ```js
+  // eslint.config.js
+  module.exports = (async () => {
+    const { defineConfig } = await import('@witheslint/core')
+    const { presetSvelte } = await import('@witheslint/preset-svelte')
 
-export default defineConfig({
-  presets: [
-    presetSvelte(),
-  ],
-})
-```
+    return defineConfig({
+      presets: [
+        presetSvelte(),
+        // ...other presets
+      ],
+    })
+  })()
+  ```
+  </TabItem>
+</Tabs>
 
 > See [customization](/guides/customization) for more details.

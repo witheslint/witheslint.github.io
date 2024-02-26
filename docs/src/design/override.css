@@ -33,13 +33,6 @@ footer .pagination-links a .link-title{
   border-radius: 8px;
 }
 
-.expressive-code .frame.has-title:not(.is-terminal) pre,
-.expressive-code .is-terminal pre{
-  border-radius: 0 0 8px 8px !important;
-}
-.expressive-code :not(.is-terminal) pre{
-  border-radius: 8px !important;
-}
 .expressive-code .copy button {
   width: 1.8rem !important;
   height: 1.8rem !important;

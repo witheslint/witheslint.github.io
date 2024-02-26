@@ -36,22 +36,30 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
 
 - Create ESLint configuration file `eslint.config.js`
 
-```js
-import { defineConfig } from 'witheslint'
-
-export default defineConfig()
-```
-> Note that `.eslintignore` no longer works in Flat config, see [customization](/guides/customization) for more details.
-
-<Aside type="caution" title="Warning">
-  If your project does not specify `"type":"module"` in its `package.json` file, then `eslint.config.js` must be in CommonJS format, such as:
+<Tabs>
+  <TabItem label="ESModule">
   ```js
+  // eslint.config.js
+  import { defineConfig } from 'witheslint'
+
+  export default defineConfig()
+  ```
+  </TabItem>
+  <TabItem label="CommonJS">
+  ```js
+  // eslint.config.js
   module.exports = (async () => {
     const { defineConfig } = await import('witheslint')
     return defineConfig()
   })()
   ```
-</Aside>
+  </TabItem>
+</Tabs>
+
+
+> Note that `.eslintignore` no longer works in Flat config, see [customization](/guides/customization) for more details.
+
+
 
 - [Configure your editor](/guides/ide-support)
 

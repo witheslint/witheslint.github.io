@@ -10,6 +10,7 @@ sidebar:
 - Add the following settings to your project setting `.vscode/settings.json`:
 
 ```jsonc
+// .vscode/settings.json
 {
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,

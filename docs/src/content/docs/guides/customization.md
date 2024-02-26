@@ -109,9 +109,8 @@ interface StylisticConfig {
 ```
 </details>
 
-
-- `eslint.config.js`
 ```js
+// eslint.config.js
 import { defineConfig, presetVue } from 'witheslint'
 
 export default defineConfig({

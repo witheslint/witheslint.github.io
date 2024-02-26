@@ -38,19 +38,38 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ### Reference
 
-- `eslint.config.js`
+<Tabs>
+  <TabItem label="ESModule">
+  ```js
+  // eslint.config.js
+  import { defineConfig, presetAstro } from 'witheslint'
+  // import { defineConfig } from '@witheslint/core'
+  // import { presetAstro } from '@witheslint/preset-astro'
 
-```js
-import { defineConfig, presetAstro } from 'witheslint'
-// import { defineConfig } from '@witheslint/core'
-// import { presetAstro } from '@witheslint/preset-astro'
+  export default defineConfig({
+    presets: [
+      presetAstro(),
+      // ...other presets
+    ],
+  })
+  ```
+  </TabItem>
+  <TabItem label="CommonJS">
+  ```js
+  // eslint.config.js
+  module.exports = (async () => {
+    const { defineConfig, presetAstro } = await import('witheslint')
+    // const { defineConfig } = await import('@witheslint/core')
+    // const { presetAstro } = await import('@witheslint/preset-astro')
+    return defineConfig({
+      presets: [
+        presetAstro(),
+        // ...other presets
+      ],
+    })
+  })()
+  ```
+  </TabItem>
+</Tabs>
 
-export default defineConfig({
-  presets: [
-    presetAstro(),
-    // ...other presets
-  ],
-})
-```
 > See [customization](/guides/customization) for more details.
-
