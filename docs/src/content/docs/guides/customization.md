@@ -151,12 +151,10 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 
 | New Prefix | Original Prefix        | Source Plugin                                                                              |
 | ---------- | ---------------------- | ------------------------------------------------------------------------------------------ |
-| `import/*` | `i/*`                  | [eslint-plugin-i](https://github.com/un-es/eslint-plugin-i)                                |
+| `import/*` | `import-x/*`           | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)                  |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)                           |
 | `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://eslint.style)                                           |
 | `sorter/*` | `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
 | `-`        | `jsdoc/*`              | [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc)                        |
 | `-`        | `unicorn/*`            | [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)             |
 | `-`        | `unused-imports/*`     | [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)  |
-
-
