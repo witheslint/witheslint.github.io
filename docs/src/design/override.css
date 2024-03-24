@@ -1,7 +1,3 @@
-code {
-  border-radius: 4px;
-}
-
 footer .pagination-links a{
   padding: 0.5rem;
   box-shadow: none;
@@ -13,6 +9,10 @@ footer .pagination-links a .link-title{
   font-size: var(--sl-text-lg) !important;
 }
 
+code {
+  border-radius: 4px;
+}
+
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 8rem #4B33C3);
 }
@@ -21,7 +21,7 @@ footer .pagination-links a .link-title{
   padding: 0.5rem 1.25rem !important;
 }
 .action:hover{
-  opacity: 90%;
+  opacity: 80%;
   transition: opacity 0.2s;
 }
 .action.minimal{
@@ -48,6 +48,3 @@ footer .pagination-links a .link-title{
   padding-left: 1rem;
 }
 
-.starlight-aside{
-  border-radius: 0 8px 8px 0 !important;
-}
