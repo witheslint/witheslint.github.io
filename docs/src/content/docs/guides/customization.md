@@ -13,13 +13,14 @@ sidebar:
 ```ts
 interface DefineConfigOptions {
   /**
-   * `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+   * An array of glob patterns indicating the files that the configuration
+   * object should not apply to.
    */
   ignores?: string[]
   /**
    * Configuration for various features.
    */
-  features?: FeaturesConfig
+  features?: Features
   /**
    * Predefined configurations for common use cases.
    */
@@ -27,22 +28,26 @@ interface DefineConfigOptions {
   /**
    * Additional configurations to extend.
    */
-  extends?: Arrayable<FlatConfigItem>
+  extends?: Arrayable<ConfigModule>
 }
 
-interface FeaturesConfig {
+export interface Features {
   /**
    * Enable stylistic rules.
    *
    * @default true
    */
-  stylistic: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig
   /**
-   * Enable TypeScript support.
+   * Enable sorting rules.
    *
    * @default true
    */
-  typescript: boolean
+  sorting?: boolean
+  /**
+   * Enable TypeScript support.
+   */
+  typescript?: boolean
 }
 
 interface StylisticConfig {
@@ -116,8 +121,6 @@ import { defineConfig, presetVue } from 'witheslint'
 export default defineConfig({
   // Customize ignored files and directories.
   ignores: [
-    '**/node_modules',
-    '**/dist',
     '**/.idea',
   ],
   features: {
@@ -154,7 +157,8 @@ Since flat config requires us to explicitly provide the plugin names (instead of
 | `import/*` | `import-x/*`           | [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)                  |
 | `ts/*`     | `@typescript-eslint/*` | [@typescript-eslint/eslint-plugin](https://typescript-eslint.io)                           |
 | `style/*`  | `@stylistic/*`         | [@stylistic/eslint-plugin](https://eslint.style)                                           |
-| `sorter/*` | `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
+| `sorting/*`| `perfectionist/*`      | [eslint-plugin-perfectionist](https://eslint-plugin-perfectionist.azat.io)                 |
+| `-`        | `antfu/*`              | [eslint-plugin-antfu](https://github.com/antfu/eslint-plugin-antfu)                        |
 | `-`        | `jsdoc/*`              | [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc)                        |
 | `-`        | `unicorn/*`            | [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)             |
 | `-`        | `unused-imports/*`     | [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)  |
