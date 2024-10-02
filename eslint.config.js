@@ -1,3 +1,5 @@
 import { defineConfig } from 'witheslint'
 
-export default defineConfig()
+export default defineConfig({
+  ignores: ['**/.astro/**'],
+})
