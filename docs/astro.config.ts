@@ -15,7 +15,8 @@ export default defineConfig({
         github: 'https://github.com/witheslint/witheslint',
       },
       editLink: {
-        baseUrl: 'https://github.com/witheslint/witheslint.github.io/edit/main/docs/',
+        baseUrl:
+          'https://github.com/witheslint/witheslint.github.io/edit/main/docs/',
       },
       sidebar: [
         {
@@ -27,9 +28,7 @@ export default defineConfig({
           autogenerate: { directory: 'integrations' },
         },
       ],
-      customCss: [
-        './src/design/override.css',
-      ],
+      customCss: ['./src/design/override.css'],
     }),
   ],
 })
