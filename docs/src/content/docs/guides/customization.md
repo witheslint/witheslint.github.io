@@ -2,7 +2,7 @@
 title: Customization
 next: false
 sidebar:
-  order: 4
+  order: 3
 ---
 
 ### Reference
@@ -37,7 +37,7 @@ export interface Features {
    *
    * @default true
    */
-  stylistic?: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig | 'prettier'
   /**
    * Enable sorting rules.
    *
@@ -115,7 +115,7 @@ interface StylisticConfig {
 </details>
 
 ```js
-// eslint.config.js
+// eslint.config.mjs
 import { defineConfig, presetVue } from 'witheslint'
 
 export default defineConfig({
@@ -126,6 +126,7 @@ export default defineConfig({
   features: {
     // typescript: false, // Do not want to use TypeScript.
     // stylistic: false, // Do not want to use stylistic rules
+    // sorting: false, // Do not want to use sorting rules
   },
   presets: [
     presetVue() // In your vue project

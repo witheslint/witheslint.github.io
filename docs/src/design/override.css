@@ -9,10 +9,6 @@ footer .pagination-links a .link-title{
   font-size: var(--sl-text-lg) !important;
 }
 
-code {
-  border-radius: 4px;
-}
-
 [data-has-hero] .hero > img {
   filter: drop-shadow(0 0 8rem #4B33C3);
 }
@@ -27,10 +23,6 @@ code {
 .action.minimal{
   color: currentColor;
   background-color: var(--sl-color-gray-6);
-}
-
-.card{
-  border-radius: 8px;
 }
 
 .expressive-code .copy button {
@@ -48,3 +40,6 @@ code {
   padding-left: 1rem;
 }
 
+.sl-steps > li:last-child::after{
+  display: none;
+}

@@ -36,39 +36,18 @@ import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ### Reference
 
-<Tabs>
-  <TabItem label="ESModule">
-  ```js
-  // eslint.config.js
-  import { defineConfig, presetReact } from 'witheslint'
-  // import { defineConfig } from '@witheslint/core'
-  // import { presetReact } from '@witheslint/preset-react'
+```js
+// eslint.config.mjs
+import { defineConfig, presetReact } from 'witheslint'
+// import { defineConfig } from '@witheslint/core'
+// import { presetReact } from '@witheslint/preset-react'
 
-  export default defineConfig({
-    presets: [
-      presetReact(),
-      // ...other presets
-    ],
-  })
-  ```
-  </TabItem>
-  <TabItem label="CommonJS">
-  ```js
-  // eslint.config.js
-  module.exports = (async () => {
-    const { defineConfig, presetReact } = await import('witheslint')
-    // const { defineConfig } = await import('@witheslint/core')
-    // const { presetReact } = await import('@witheslint/preset-react')
-
-    return defineConfig({
-      presets: [
-        presetReact(),
-        // ...other presets
-      ],
-    })
-  })()
-  ```
-  </TabItem>
-</Tabs>
+export default defineConfig({
+  presets: [
+    presetReact(),
+    // ...other presets
+  ],
+})
+```
 
 > See [customization](/guides/customization) for more details.

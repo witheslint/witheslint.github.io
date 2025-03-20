@@ -3,14 +3,9 @@ title: Getting Started
 sidebar:
   order: 2
 ---
-import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Aside, Tabs, TabItem, Steps, FileTree, Badge, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 Use WithESLint to make managing ESLint configurations for your project easier. This guide will assist you in getting started with your project.
-
-<Aside type="danger" title="Requirements">
-  - ESLint v9.10.0 and above
-  - Node.js v18.18.x and above
-</Aside>
 
 ### Installation
 
@@ -20,11 +15,13 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
   pnpm add -D eslint witheslint
   ```
   </TabItem>
+
   <TabItem label="yarn">
   ```sh
   yarn add -D eslint witheslint
   ```
   </TabItem>
+
   <TabItem label="npm">
   ```sh
   npm install -D eslint witheslint
@@ -32,34 +29,107 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
   </TabItem>
 </Tabs>
 
+<Aside type="danger" title="Requirements">
+  - ESLint v9.20.0 and above
+  - Node.js v18.18.x and above
+</Aside>
+
+
 ### Configuration
 
-- Create ESLint configuration file `eslint.config.js`
+<FileTree>
+  - .vscode
+    - settings.json
+  - ...
+  - eslint.config.mjs
+  - package.json
+</FileTree>
 
-<Tabs>
-  <TabItem label="ESModule">
-  ```js
-  // eslint.config.js
-  import { defineConfig } from 'witheslint'
+<Steps>
 
-  export default defineConfig()
-  ```
-  </TabItem>
-  <TabItem label="CommonJS">
-  ```js
-  // eslint.config.js
-  module.exports = (async () => {
-    const { defineConfig } = await import('witheslint')
-    return defineConfig()
-  })()
-  ```
-  </TabItem>
-</Tabs>
+1. Create ESLint configuration file in your project root:
 
+    ```js
+    // eslint.config.mjs
+    import { defineConfig } from 'witheslint'
 
-> Note that `.eslintignore` no longer works in Flat config, see [customization](/guides/customization) for more details.
+    export default defineConfig()
+    ```
+    > see [customization](/guides/customization) for more details.
 
+2. Add script for package.json:
 
+    ```json
+    // package.json
+    {
+      "scripts": {
+        "lint": "eslint",
+        "lint:fix": "eslint --fix"
+      }
+    }
+    ```
 
-- [Configure your editor](/guides/ide-support)
+3. Needs IDE support? Let's configure your editor:
+
+    <details>
+    <summary>VS Code</summary>
+    <Steps>
+
+    1. Install VS Code extension:
+
+        <LinkCard title="VS Code ESLint extension" href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" />
+
+    2. Add the following settings to your project setting:
+
+        ```jsonc
+        // .vscode/settings.json
+        {
+          // Disable the default formatter, use eslint instead
+          "prettier.enable": false,
+          "editor.formatOnSave": false,
+
+          // Auto fix
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.organizeImports": "never"
+          },
+
+          // Enable the ESlint flat config support
+          "eslint.useFlatConfig": true,
+          "eslint.runtime": "node",
+
+          // Enable eslint for supported languages
+          "eslint.validate": [
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            // "astro",
+            // "svelte",
+            // "vue",
+          ]
+        }
+        ```
+
+    </Steps>
+    </details>
+    <details>
+    <summary>JetBrains IDEs</summary>
+    <Steps>
+
+    1. Open the Settings dialog
+
+    2. Go to `Languages & Frameworks -> JavaScript -> Code Quality Tools -> ESLint`
+
+    3. Select the `Run eslint --fix on save` checkbox.
+
+    </Steps>
+
+    <Aside type="tip">
+      See [JetBrains Docs](https://www.jetbrains.com/help/idea/eslint.html#ws_eslint_configure_run_eslint_on_save) for more details.
+    </Aside>
+    </details>
+
+</Steps>
+
 
