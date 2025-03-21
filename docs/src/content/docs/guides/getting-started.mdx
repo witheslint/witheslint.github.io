@@ -42,12 +42,13 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
     - settings.json
   - ...
   - eslint.config.mjs
+  - lefthook.yaml
   - package.json
 </FileTree>
 
 <Steps>
 
-1. Create ESLint configuration file in your project root:
+1. Define ESLint configurations:
 
     ```js
     // eslint.config.mjs
@@ -57,7 +58,7 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
     ```
     > see [customization](/guides/customization) for more details.
 
-2. Add script for package.json:
+2. Provide convenient ESLint command line operations:
 
     ```json
     // package.json
@@ -69,7 +70,23 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
     }
     ```
 
-3. Needs IDE support? Let's configure your editor:
+3. Format and lint the staged files before committing or pushing:
+
+    ```zsh
+    pnpm add -D lefthook
+    ```
+    ```yaml
+    # lefthook.yaml
+    pre-commit:
+      commands:
+        eslint:
+          glob: '*.{js,ts}'
+          run: pnpm eslint --fix {staged_files}
+          stage_fixed: true
+    ```
+    > Once configured, run `lefthook install` to set up the hooks.
+
+4. Needs IDE support? Let's configure your editor:
 
     <details>
     <summary>VS Code</summary>
@@ -129,6 +146,7 @@ Use WithESLint to make managing ESLint configurations for your project easier. T
       See [JetBrains Docs](https://www.jetbrains.com/help/idea/eslint.html#ws_eslint_configure_run_eslint_on_save) for more details.
     </Aside>
     </details>
+5. Enjoy!
 
 </Steps>
 
